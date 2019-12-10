@@ -14,7 +14,11 @@ class VKAuth(models.Model):
     def __str__(self):
         return self.first_name + " " + self.last_name
 
-    def __dict__(self):
-        return {"first_name": self.first_name, "last_name": self.last_name, "vkUserId": self.vkUserId,
-                "clientSecret": self.clientSecret, "vkToken": self.vkToken}
+
+class YandexDirect(models.Model):
+    token = models.CharField(max_length=256)
+
+    def __str__(self):
+        return self.token
+
 

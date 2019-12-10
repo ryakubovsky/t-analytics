@@ -4,3 +4,4 @@ from . import models
 
 
 admin.site.register(models.VKAuth)
+admin.site.register(models.YandexDirect)

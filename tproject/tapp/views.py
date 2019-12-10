@@ -20,3 +20,8 @@ def VKAuth(request):
         return render(request, 'tapp/VKAuth.html', {"all_objects": all_objects, "code": token.json()['access_token']})
     except:
         return render(request, 'tapp/VKAuth.html', {"all_objects": all_objects, "code": "Нет кода"})
+
+
+def YandexDirectAuth(request):
+    all_objects = models.YandexDirect.objects.get(id=1)
+    return render(request, 'tapp/YandexDirect.html', {"all_objects": all_objects})
