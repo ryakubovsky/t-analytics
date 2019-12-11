@@ -3,6 +3,7 @@ from django.http import HttpResponse
 from . import models
 import requests
 import json
+from social_core.backends.yandex import YandexOAuth2
 
 # Create your views here.
 
@@ -23,5 +24,5 @@ def VKAuth(request):
 
 
 def YandexDirectAuth(request):
-    all_objects = models.YandexDirect.objects.get(id=1)
-    return render(request, 'tapp/YandexDirect.html', {"all_objects": all_objects})
+    # all_objects = models.YandexDirect.objects.get(id=1)
+    return render(request, 'tapp/YandexDirect.html', {"all_objects": YandexOAuth2})

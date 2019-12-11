@@ -37,8 +37,13 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'tapp'
+    'tapp',
+    'social_django'
 ]
+
+AUTHENTICATION_BACKENDS = (
+    'social_auth.backends.contrib.yandex.YandexOAuth2Backend'
+)
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -63,10 +68,18 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'social_django.context_processors.backends',
             ],
         },
     },
 ]
+
+YANDEX_OAUTH2_CLIENT_KEY = '07a16d543adf460fb4ae80ba6a1247c7'
+YANDEX_OAUTH2_CLIENT_SECRET = '2165abd93a5e4c18bac978cd9fb6e262'
+
+YANDEX_APP_ID = YANDEX_OAUTH2_CLIENT_KEY
+YANDEX_API_SECRET = YANDEX_OAUTH2_CLIENT_SECRET
+YANDEX_OAUTH2_API_URL = 'https://api-yaru.yandex.ru/me/'
 
 WSGI_APPLICATION = 'tproject.wsgi.application'
 
