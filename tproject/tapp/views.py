@@ -25,4 +25,9 @@ def VKAuth(request):
 
 def YandexDirectAuth(request):
     # all_objects = models.YandexDirect.objects.get(id=1)
-    return render(request, 'tapp/YandexDirect.html', {"all_objects": YandexOAuth2})
+    return render(request, 'tapp/YandexDirect.html', {"all_objects": ""})
+
+
+def YandexDirectAuth2(request):
+    # data = requests.get("https://oauth.yandex.ru/authorize", params={"response_type": "code", "client_id": "07a16d543adf460fb4ae80ba6a1247c7"})
+    return render(request, 'tapp/YandexPassport.html', {"all_objects": "data"})

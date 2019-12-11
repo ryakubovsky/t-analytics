@@ -8,5 +8,6 @@ urlpatterns = [
     # url(r"^$", views.index),
     url(r"^VKAuth/", views.VKAuth),
     url(r"^YandexDirect/", views.YandexDirectAuth),
-    url(r'', include('social_django.urls', namespace='social'))
+    url(r'', include('social_django.urls', namespace='social')),
+    url(r"^login/yandex/", views.YandexDirectAuth2)
 ]
