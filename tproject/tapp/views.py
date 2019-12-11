@@ -1,5 +1,6 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+from django.urls import reverse
+from django.http import HttpResponse, HttpResponseRedirect
 from . import models
 import requests
 import json
@@ -28,6 +29,10 @@ def YandexDirectAuth(request):
     return render(request, 'tapp/YandexDirect.html', {"all_objects": ""})
 
 
-def YandexDirectAuth2(request):
-    # data = requests.get("https://oauth.yandex.ru/authorize", params={"response_type": "code", "client_id": "07a16d543adf460fb4ae80ba6a1247c7"})
-    return render(request, 'tapp/YandexPassport.html', {"all_objects": "data"})
+def YandexDirectOAuth(request):
+    url = "https://oauth.yandex.ru/authorize/?response_type=code&client_id=07a16d543adf460fb4ae80ba6a1247c7"
+    return HttpResponseRedirect(url)
+
+def GetYandexCode(request):
+    code = request.GET['code']
+    return HttpResponse("OK")
