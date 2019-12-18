@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Список подключений</title>
+        {% load static %}
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+</head>
+<body>
+    <div class="container">
+    <h1>Список подключений для: {{ client }}</h1>
+    {% if yandex_direct %}
+    <p class="client">
+        <a href="{% url 'tapp:about_yandex_direct' user_id client_id %}">Есть активное подключение</a>
+        <a href="{% url 'tapp:yandex_code' %}"><button class="add">Обновить подключение</button></a>
+    </p>
+    {% else %}
+    <p class="client">
+        Нет активных подключений
+        <a href="{% url 'tapp:yandex_code' %}"><button class="add">Создать подключение</button></a>
+    </p>
+    {% endif %}
+    </div>
+</body>
+</html>

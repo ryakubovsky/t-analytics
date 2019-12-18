@@ -22,6 +22,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'oom0l&p2$%q43ww)_ya)3g$7twewf3tu-6q1cus8#@52tcm%o&'
 
+
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
@@ -38,12 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'tapp',
-    'social_django'
 ]
-
-AUTHENTICATION_BACKENDS = (
-    'social_auth.backends.contrib.yandex.YandexOAuth2Backend'
-)
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -52,7 +48,7 @@ MIDDLEWARE = [
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
-    'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django.middleware.clickjacking.XFrameOptionsMiddleware'
 ]
 
 ROOT_URLCONF = 'tproject.urls'
@@ -67,19 +63,12 @@ TEMPLATES = [
                 'django.template.context_processors.debug',
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
-                'django.contrib.messages.context_processors.messages',
-                'social_django.context_processors.backends',
+                'django.contrib.messages.context_processors.messages'
             ],
         },
     },
 ]
 
-YANDEX_OAUTH2_CLIENT_KEY = '07a16d543adf460fb4ae80ba6a1247c7'
-YANDEX_OAUTH2_CLIENT_SECRET = '2165abd93a5e4c18bac978cd9fb6e262'
-
-YANDEX_APP_ID = YANDEX_OAUTH2_CLIENT_KEY
-YANDEX_API_SECRET = YANDEX_OAUTH2_CLIENT_SECRET
-YANDEX_OAUTH2_API_URL = 'https://api-yaru.yandex.ru/me/'
 
 WSGI_APPLICATION = 'tproject.wsgi.application'
 

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Список клиентов</title>
+        {% load static %}
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+</head>
+<body>
+<div class="container">
+    <h1>Список клиентов:</h1>
+    <ul id="todo-list">
+        {% for client in all_clients %}
+    <li>
+      <a href="{% url 'tapp:get_clients_info' client.user_id client.client_id %}">{{ client.client_name }}</a>
+      <a class="remove" href="{% url 'tapp:delete_client' client.user_id client.client_id %}">X</a>
+      <hr/>
+    </li>
+        {% endfor %}
+    </ul>
+    <form action="." method="post">
+        <input type="text" name="client_name">
+        {% csrf_token %}
+        <button class="add" type="submit">Добавить клиента</button>
+    </form>
+</div>
+</body>
+</html>
